@@ -8,9 +8,17 @@ export function saveSession(user) {
 }
 
 export function getSession() {
-  const user = localStorage.getItem(SESSION_KEY);
+  try {
+    const user = localStorage.getItem(SESSION_KEY);
 
-  return user ? JSON.parse(user) : null;
+    if (!user) return null;
+
+    return JSON.parse(user);
+  } catch (error) {
+    // si el JSON está corrupto, limpiamos sesión
+    localStorage.removeItem(SESSION_KEY);
+    return null;
+  }
 }
 
 export function clearSession() {

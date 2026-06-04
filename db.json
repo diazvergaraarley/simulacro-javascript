@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Manager",
       "email": "manager@test.com",
       "password": "123456",
       "role": "manager"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Collaborator",
       "email": "user@test.com",
       "password": "123456",
@@ -17,12 +17,21 @@
   ],
   "projects": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Website Redesign",
       "description": "Corporate website redesign",
-      "status": "In Progress",
+      "status": "Pending",
       "assignedTo": 2,
       "createdAt": "2026-06-03"
+    },
+    {
+      "name": "Proyecto",
+      "description": "de prueb",
+      "status": "In Progress",
+      "assignedTo": "1",
+      "createdAt": "2026-06-04T19:25:10.498Z",
+      "id": "y2_i1TkajNQ"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

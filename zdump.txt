@@ -1,0 +1,157 @@
+PROJECT: Project Management SPA (JavaScript + Vite + json-server)
+
+========================================================
+1. CONTEXTO GENERAL
+========================================================
+
+Aplicación SPA para gestión de proyectos internos con:
+
+- Vanilla JavaScript
+- Vite como bundler
+- json-server como API simulada
+- LocalStorage para sesión
+- Sistema de roles:
+  - manager
+  - collaborator
+
+========================================================
+2. ESTRUCTURA DEL PROYECTO
+========================================================
+
+src/
+├── assets/
+├── components/
+├── router/
+│   └── router.js
+├── services/
+│   ├── api.js
+│   ├── authService.js
+│   └── projectService.js
+├── storage/
+│   └── session.js
+├── utils/
+├── views/
+│   ├── loginView.js
+│   ├── dashboardView.js
+│   └── projectsView.js
+├── main.js
+└── styles/
+
+db.json (raíz del proyecto)
+
+========================================================
+3. API (json-server)
+========================================================
+
+Endpoint base:
+http://localhost:3000
+
+Entidades:
+- users
+- projects
+
+========================================================
+4. AUTH FLOW
+========================================================
+
+login(email, password):
+- fetch users
+- validar credenciales
+- guardar usuario en localStorage
+- redirigir a dashboard
+
+session.js:
+- saveSession(user)
+- getSession()
+- clearSession()
+
+========================================================
+5. ROUTER (SPA)
+========================================================
+
+navigate(view):
+
+- verifica sesión
+- renderiza login o dashboard
+- protege rutas
+
+========================================================
+6. ROLES
+========================================================
+
+MANAGER:
+- CRUD completo de proyectos
+- ve todos los proyectos
+- ve estadísticas
+
+COLLABORATOR:
+- ve solo proyectos asignados
+- puede actualizar estado
+- no puede eliminar ni crear
+
+========================================================
+7. DASHBOARD LOGIC
+========================================================
+
+Manager:
+- total projects
+- active projects
+- finished projects
+
+Collaborator:
+- number of assigned projects
+
+CRUD:
+- create project
+- delete project
+- update project status
+
+========================================================
+8. PERSISTENCIA
+========================================================
+
+localStorage:
+- mantiene sesión al recargar
+- auto-login en main.js
+- logout limpia sesión
+
+========================================================
+9. JSON-SERVER COMMANDS
+========================================================
+
+npm run server → API
+npm run dev → frontend
+
+========================================================
+10. README CONTENT
+========================================================
+
+Incluye:
+- description
+- technologies
+- installation
+- run instructions
+- project structure
+- roles
+- technical decisions
+
+========================================================
+11. ARCHITECTURE IDEA
+========================================================
+
+- API layer separado (services/api.js)
+- lógica de negocio en services
+- UI en views
+- routing centralizado
+- sesión aislada en storage
+
+========================================================
+12. NEXT STEP COMPLETED
+========================================================
+
+✔ README estructurado
+✔ guía de reconstrucción del proyecto
+✔ protección de rutas implementada
+✔ dashboard con métricas por rol
+✔ CRUD completo funcionando
+✔ persistencia de sesión
