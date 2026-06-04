@@ -1,16 +1,10 @@
-import { login } from "../services/authService.js";
+import { navigate } from "./router/router.js";
+import { getSession } from "./storage/session.js";
 
-async function testLogin() {
-  try {
-    const user = await login(
-      "manager@test.com",
-      "123456"
-    );
+const user = getSession();
 
-    console.log(user);
-  } catch (error) {
-    console.error(error.message);
-  }
+if (user) {
+  navigate("dashboard");
+} else {
+  navigate("login");
 }
-
-testLogin();

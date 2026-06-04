@@ -1,5 +1,5 @@
 import { getData } from "./api.js";
-import { saveSession } from "../src/storage/session.js";
+import { saveSession } from "../storage/session.js";
 
 export async function login(email, password) {
   const users = await getData("users");
