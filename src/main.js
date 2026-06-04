@@ -1,4 +1,4 @@
-import { login } from "./services/authService.js";
+import { login } from "../services/authService.js";
 
 async function testLogin() {
   try {
