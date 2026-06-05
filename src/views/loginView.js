@@ -6,12 +6,17 @@ export function renderLoginView() {
   const app = document.getElementById("app");
 
   app.innerHTML = `
-    <div>
-      <h1>Login</h1>
+  <div class="login-container">
+
+    <div class="card">
+
+      <h1>Project Manager</h1>
 
       <form id="login-form">
-        <div>
+
+        <div class="form-group">
           <label>Email</label>
+
           <input
             type="email"
             id="email"
@@ -19,8 +24,9 @@ export function renderLoginView() {
           >
         </div>
 
-        <div>
+        <div class="form-group">
           <label>Password</label>
+
           <input
             type="password"
             id="password"
@@ -28,14 +34,21 @@ export function renderLoginView() {
           >
         </div>
 
-        <button type="submit">
+        <button
+          type="submit"
+          class="btn"
+        >
           Login
         </button>
+
       </form>
 
       <p id="message"></p>
+
     </div>
-  `;
+
+  </div>
+`;
 
   const form = document.getElementById("login-form");
 

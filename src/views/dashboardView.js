@@ -38,7 +38,7 @@ export async function renderDashboardView() {
     ).length;
 
     statsHTML = `
-      <div>
+      <div class="stats-card">
         <h3>Stats</h3>
         <p>Total: ${total}</p>
         <p>Active: ${active}</p>
@@ -60,7 +60,7 @@ export async function renderDashboardView() {
   // RENDER PRINCIPAL
   // =========================
   app.innerHTML = `
-    <div>
+    <div class="dashboard">
       <h1>Dashboard</h1>
 
       ${statsHTML}
@@ -70,7 +70,7 @@ export async function renderDashboardView() {
           ? `
         <h2>Create Project</h2>
 
-        <form id="project-form">
+        <form id="project-form" class="project-form">
           <input id="name" placeholder="Name" required />
           <input id="description" placeholder="Description" required />
 
@@ -87,7 +87,7 @@ export async function renderDashboardView() {
       }
 
       <h2>Projects</h2>
-      <ul id="project-list"></ul>
+      <ul id="project-list" class="project-list"></ul>
 
       <button id="logout-btn">Logout</button>
     </div>
@@ -100,6 +100,7 @@ export async function renderDashboardView() {
 
     projects.forEach(project => {
       const li = document.createElement("li");
+      li.classList.add("project-card");
 
       li.innerHTML = `
         <strong>${project.name}</strong>
